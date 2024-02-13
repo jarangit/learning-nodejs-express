@@ -1,5 +1,5 @@
 const express = require('express');
-const { getProductByID, getListProduct, createProduct } = require('../controllers/product');
+const { getProductByID, getListProduct, createProduct, updateProduct, deleteProduct } = require('../controllers/product');
 
 
 
@@ -8,7 +8,9 @@ const router = express.Router()
 
 router.get('/product/:id', getProductByID)
 router.get('/products', getListProduct)
-router.post('/product/:id', createProduct)
+router.post('/create-product', createProduct)
+router.put('/update-product/:id', updateProduct)
+router.delete('/delete-product/:id', deleteProduct)
 
 // export zone
 module.exports = router

@@ -1,11 +1,15 @@
 const express = require('express')
-const { readdirSync } = require('fs')
 const morgan = require('morgan')
+const { readdirSync } = require('fs')
 const bodyParser = require('body-parser')
+const connectDB = require('./src/config/db')
 
 
 
 const app = express()
+
+// context db
+connectDB()
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

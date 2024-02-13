@@ -1,12 +1,12 @@
 const express = require('express')
 const { readdirSync } = require('fs')
-const app = express()
+const morgan = require('morgan')
 const bodyParser = require('body-parser')
 
 
-// Route1
-// app.use('/api')
 
+const app = express()
+app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 // loop fot get file in folder routes

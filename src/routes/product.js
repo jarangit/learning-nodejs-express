@@ -1,12 +1,14 @@
 const express = require('express');
+const { getProductByID, getListProduct, createProduct } = require('../controllers/product');
+
+
+
+// dev zone
 const router = express.Router()
 
-router.get('/product', (req, res) => {
-  res.send("get api data product")
-})
+router.get('/product/:id', getProductByID)
+router.get('/products', getListProduct)
+router.post('/product/:id', createProduct)
 
-router.get('/products', (req, res) => {
-  res.send("get api data products")
-})
-
+// export zone
 module.exports = router
